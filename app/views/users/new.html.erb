@@ -1,0 +1,40 @@
+<div class="new-wrapper">
+  <div class="new-container">
+    <div class="row">
+      <div class="col-sm-offset-3 col-sm-6">
+        <h2 class="new-user">新規登録</h2>
+          <%= form_for @user do |f| %>
+            <div class="form-group">
+              <%= f.label :name, class: 'form-text' %>
+              <%= f.text_field :name, class: 'form-control' %>
+            </div>
+            <div class="form-group">
+              <%= f.label :email, class: 'form-text' %>
+              <%= f.text_field :email, class: 'form-control' %>
+            </div>
+            <div class="form-group ">
+              <%= f.label :profile, class: 'form-text' %>
+              <%= f.text_area :profile, class: 'form-control' %>
+            </div>
+            <div class="form-group">
+              <%= f.label :password, class: 'form-text' %>
+              <%= f.password_field :password, class: 'form-control' %>
+            </div>
+            <div class="attention">
+              <span>※8〜32文字の半角英数字の混合のみ可能です</span>
+            </div>
+            <div class="form-group">
+              <%= f.label :password, class: 'form-text' %>
+              <%= f.password_field :password_confirmation, class: 'form-control' %>
+            </div>
+            <div class="attention">
+              <span>※確認のためもう一度入力してください</span>
+            </div>
+            <div class="form-group">
+              <%= f.submit "登録", class: 'btn-block' %>
+            </div>
+          <% end %>
+      </div>
+    </div>
+  </div>
+</div>

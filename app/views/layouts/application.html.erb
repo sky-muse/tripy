@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tripy</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <script src="https://unpkg.com/infinite-scroll@3/dist/infinite-scroll.pkgd.min.js"></script>
+
+  </head>
+
+  <body>
+
+    <% flash.each do |key, value| %>
+      <div class="alert alert-<%= key %>" role="alert"><%= value %></div>
+    <% end %>
+
+    <header>
+      <div class="top-wrapper">
+        <div class="header">
+          <div class="heder-row">
+            <div class="left-header">
+              <div class="col-sm-1">
+                <ul>
+                  <li>
+                    <%= link_to root_path do %>
+                      <span><i class="fas fa-home fa-2x"></i><br>HOME</span>
+                    <% end %>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="right-header">
+              <div class="col-sm-offset-3 col-sm-9">
+                <% if logged_in? %>
+                <ul>
+                  <li>
+                    <%= link_to new_topic_path do %>
+                      <span><i class="fas fa-camera-retro fa-2x"></i><br>投稿</span>
+                    <% end %>
+                  </li>
+                  <li>
+                    <%= link_to topics_path do %>
+                      <span><i class="far fa-image fa-2x"></i><br>投稿一覧</span>
+                    <% end %>
+                  </li>
+                  <li>
+                    <%= link_to "#" do %>
+                      <span><i class="fas fa-heart fa-2x"></i><br>いいね一覧</span>
+                    <% end %>
+                  </li>
+                  <li>
+                    <%= link_to "#" do %>
+                      <span><i class="fas fa-users fa-2x"></i><br>フォロー</span>
+                    <% end %>
+                  </li>
+                  <li>
+                    <%= link_to login_path, method: :delete do %>
+                      <span><i class="fas fa-sign-out-alt fa-2x"></i><br>ログアウト</span>
+                    <% end %>
+                  </li>
+                <% else %>
+                  <li>
+                    <%= link_to new_user_path do %>
+                      <span><i class="far fa-address-card fa-2x"></i><br>新規登録</span>
+                    <% end %>
+                  </li>
+                  <li>
+                    <%= link_to login_path do %>
+                      <span><i class="fas fa-sign-in-alt fa-2x"></i><br>ログイン</span>
+                    <% end %>
+                  </li>
+                  </ul>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <%= yield %>
+
+    <script>
+      $(function(){
+        $(".alert").fadeOut(5000);
+      });
+    </script>
+
+  </body>
+</html>

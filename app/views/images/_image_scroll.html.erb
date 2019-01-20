@@ -1,0 +1,20 @@
+
+  <div class="pictures">
+    <% @topics.each do |topic| %>
+      <div class="row-image">
+        <div class="col-sx-4">
+          <div class="topic-image">
+            <% topic.images.each do |image| %>
+              <%= image_tag image.image.url,class: "image-index" %>
+            <% end %>
+          </div>
+          <div class="topic-image">
+            <% topic.images.each do |image| %>
+              <%= image_tag image.image.url,class: "image-index" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<%= paginate @topics %>

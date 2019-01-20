@@ -1,0 +1,37 @@
+<div class="new-wrapper">
+  <div class="new-container">
+    <div class="row">
+      <div class="col-sm-offset-3 col-sm-6">
+        <h2 class="new-user">投稿</h2>
+          <%= form_for @topic do |f| %>
+            <div class="form-group">
+              <%= f.label "画像", class: 'form-text' %>
+              <%= f.file_field :image_cash, class: 'form-control' %>
+            </div>
+            <div class="form-group">
+              <%= f.label :description, class: 'form-text' %>
+              <%= f.text_area :description, class: 'form-control' %>
+            </div>
+            <div class="form-group ">
+              <%= f.label :action, class: 'form-text' %>
+              <%= f.select :action, Topic.actions.keys.map {|k| [Topic.actions_i18n[k], k]},
+              {}, {class: 'form-control'} %>
+            </div>
+            <div class="form-group">
+              <%= f.label :area, class: 'form-text' %>
+              <%= f.select :area, Topic.areas.keys.map {|k| [Topic.areas_i18n[k], k]},
+              {}, {class: 'form-control'} %>
+            </div>
+            <div class="form-group">
+              <%= f.label :price, class: 'form-text' %>
+              <%= f.select :price, Topic.prices.keys.map {|k| [Topic.prices_i18n[k], k]},
+              {}, {class: 'form-control'} %>
+            </div>
+            <div class="form-group">
+              <%= f.submit "登録", class: 'btn-block' %>
+            </div>
+          <% end %>
+      </div>
+    </div>
+  </div>
+</div>

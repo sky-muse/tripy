@@ -1,0 +1,37 @@
+<script src="https://unpkg.com/infinite-scroll@3/dist/infinite-scroll.pkgd.min.js"></script>
+<div class="container" id="pictures">
+  <div class="page">
+    <%= render "images/image_scroll" %>
+  </div>
+</div>
+<%= javascript_include_tag 'jquery.infinitescroll' %>
+
+<script>
+//   $('.container').infinitescroll({
+//   // options
+//   path: '.pagination__next',
+//   append: '.post',
+//   history: false,
+// });
+// $(document).on('turbolinks:load', function() {
+//   $("#pictures .page").infinitescroll({
+//       loading: {
+//         img:     "http://www.mytreedb.com/uploads/mytreedb/loader/ajax_loader_blue_48.gif",
+//         msgText: "loading..."
+//       },
+//       navSelector: "nav.pagination",
+//       nextSelector: "nav.pagination a[rel=next]",
+//       itemSelector: "#pictures div.index-main" /* このDOMに差し掛かった時に、次のページのロードが始まる*/
+//   });
+// });
+
+$("#pictures .page").infinitescroll({
+    loading: {
+      img:     "http://www.mytreedb.com/uploads/mytreedb/loader/ajax_loader_blue_48.gif",
+      msgText: "loading..."
+    },
+    navSelector: "nav.pagination",
+    nextSelector: "nav.pagination a[rel=next]",
+    itemSelector: "#pictures div.pictures" /* このDOMに差し掛かった時に、次のページのロードが始まる*/
+});
+</script>
